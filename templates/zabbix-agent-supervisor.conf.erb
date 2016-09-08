@@ -1,0 +1,5 @@
+[program:zabbix-agent]
+command=/usr/sbin/zabbix_agentd -c /etc/zabbix/zabbix_agentd.conf -f
+autostart=true
+autorestart=true
+user=zabbix
