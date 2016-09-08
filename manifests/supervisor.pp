@@ -2,6 +2,12 @@ class sc_zabbix::supervisor(){
 
   include sc_supervisor
 
+  file { '/etc/init.d/zabbix-agent':
+    ensure => link,
+    target => "${sc_supervisor::init_path}/supervisor-init-wrapper",
+  }
+
+
   file { "${supervisord::config_include}/zabbix-agent.conf":
     owner   => 'root',
     group   => 'root',
